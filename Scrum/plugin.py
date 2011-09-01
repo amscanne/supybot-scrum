@@ -40,7 +40,7 @@ class Scrum(callbacks.Plugin):
     """ Simple utilities for assisting in scrums.
     Currently supports only the command scrumlist. """
 
-    def scrumlist(self, irc, msg, args, name, url, username, password):
+    def scrumlist(self, irc, msg, args):
         """scrumlist
 
         Sort the members of the channel and spit out an order for
