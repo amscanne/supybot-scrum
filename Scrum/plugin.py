@@ -46,11 +46,13 @@ class Scrum(callbacks.Plugin):
         Sort the members of the channel and spit out an order for
         the current scrum.
         """
+
+        fulllist = []
         for channel in irc.state.channels:
             users = map(str, irc.state.channels[channel].users)
             random.shuffle(users)
-            irc.queueMsg(msg.privmsg(channel, ','.join(users)))
-        irc.noReply()
+            fulllist.extend(users)
+        irc.reply(','.join(users))
 
     scrumlist = wrap(scrumlist)
 
