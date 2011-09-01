@@ -49,7 +49,7 @@ class Scrum(callbacks.Plugin):
         for channel in irc.state.channels:
             users = map(str, irc.state.channels[channel].users)
             random.shuffle(users)
-            irc.queueMsg(ircmsgs.privmsg(channel, ','.join(users)))
+            irc.queueMsg(msg.privmsg(channel, ','.join(users)))
         irc.noReply()
 
     scrumlist = wrap(scrumlist)
