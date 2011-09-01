@@ -51,7 +51,9 @@ class Scrum(callbacks.Plugin):
         for channel in irc.state.channels:
             users = map(str, irc.state.channels[channel].users)
             random.shuffle(users)
-            fulllist.extend(users)
+            for nick in users:
+                if not(irc.nick == nick) and not(nick in fulllist):
+                    fulllist.append(users)
         irc.reply(','.join(users))
 
     scrumlist = wrap(scrumlist)
